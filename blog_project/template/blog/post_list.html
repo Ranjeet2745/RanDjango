@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%extends 'blog/base.html'%}
+{%block title_block%}Rans Blog Home Page {%endblock%}
+{%block content%}
+    <h1>Welcome to Rans Blog</h1>
+    {%if tag%}
+    <h3>Posts Tagged with Name:'{{tag.name}}'</h3>
+    {%endif%}
+    {%for post in post_list%}
+      <h2><a href="/detail/{{post.publish.year}}/{{post.publish.month}}/{{post.publish.day}}/{{post.slug}}">{{post.title}}</a></h2>
+    <p id='date'>  published on {{post.publish}} by {{post.author|title}}</p>
+    <p>Tags:
+      {%for tag in post.tags.all%}
+        <a href="/home/{{tag.slug}}">{{tag.name}}</a>
+      {%if not forloop.last%},{%endif%}
+      {%endfor%}
+    </p>
+    {{post.body|truncatewords:30|linebreaks}}
+    {%endfor%}
+      {%include 'blog/pagination.html' %}
+
+
+
+{%endblock%}

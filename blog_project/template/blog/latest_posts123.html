@@ -1,0 +1,5 @@
+<ul>
+  {%for post in latest_posts%}
+  <li><a href="/detail/{{post.publish.year}}/{{post.publish.month}}/{{post.publish.day}}/{{post.slug}}">{{post.title}}</li>
+  {%endfor%}
+</ul>

@@ -1,0 +1,10 @@
+<div class="paginator">
+  {%if post_list.has_previous%}
+  <a href="?page={{post_list.previous_page_number}}">Previous</a>&nbsp&nbsp&nbsp
+  {%endif%}
+  <span>Page {{post_list.number}} of {{post_list.paginator.num_pages}}</span>&nbsp&nbsp&nbsp
+  {%if post_list.has_next%}
+  <a href="?page={{post_list.next_page_number}}">Next</a>
+  {%endif%}
+
+</div>
